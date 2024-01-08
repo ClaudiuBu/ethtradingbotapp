@@ -83,14 +83,12 @@ class Eth
 
     public function getWalletInfo(string $public_address, string $type)
     {
-        $this->getWalletFirstActivity($public_address);
-        die;
         return [
             'wallet_address' => $public_address,
             'balances' => $this->getWalletBalances($public_address),
             'source_of_funds'=> $this->getWalletSourceOfFunds($public_address),
             'interacted_with'=> $this->getWalletInteractedWith($public_address),
-            'first_activity' => $this->getWalletFirstActivity($public_address),
+            'first_activity' => $this->getWalletFirstActivityTimeStamp($public_address),
             'number_of_txs' => $this->getWalletNumberOfTXs($public_address), //TODO: Think/Test // Number of transactions from this address
             'wallet_type' => $type,
         ];
@@ -116,18 +114,29 @@ class Eth
     /**
      * TODO: Think/Test // Number of transactions from this address
      */
-    public function getWalletFirstActivity(string $public_address)
+    public function getWalletFirstActivityTimeStamp(string $public_address)
     {
         $firstTx = 0;
-        $this->web3Connection->eth->getFirstTransaction($public_address, function ($err, $data) use (&$firstTx) {
-            if ($err !== null) {
-                $firstTx = 0;
-            } else {
-                $firstTx = (int)$data->toString();
-                dump($firstTx);
-                die;
+        $url = "https://api.etherscan.io/api?module=account&action=txlist&address=$public_address&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=WX9EU8SF7GSVVVKFIMG64X3Z3KZI9BY8V6";
+
+        $client = new \GuzzleHttp\Client();
+
+        $try = true;
+        while ($try) {
+            try {
+                $response = $client->request('GET', $url);
+                if ($response->getStatusCode() == 200) {
+                    $try = false;
+                    $firstTx = json_decode($response->getBody()->getContents())->result[0]->timeStamp;
+                }
+                sleep(1);
+            } catch (\Exception $e) {
+                $this->info(date('Y-m-d H:i:s').' - Error: '.$e->getMessage());
+                $try = true;
             }
-        });
+        }
+        return $firstTx;
+
     }
 
     /**
@@ -205,7 +214,6 @@ class Eth
                 $try = true;
             }
         }
-
     }
 
     //TODO
