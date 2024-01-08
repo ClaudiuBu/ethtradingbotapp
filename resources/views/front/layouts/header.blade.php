@@ -4,16 +4,16 @@
     :class="{'bg-indigo-600': darkMode === 'dark', 'bg-rose-100': darkMode === 'light'}">
 
         {{-- admin button --}}
-    <button class="rounded border px-1 bg-blue-500 flex items-center">
+    <button class="rounded border px-1 bg-blue-500">
         @if(Route::current()->getName() == 'main')
-        <a href="{{ route('admin') }}">
+        <a href="{{ route('admin') }}" class="flex items-center">
             <span class="material-symbols-outlined text-white">
                 admin_panel_settings
             </span>
         </a>
         {{-- if route is /admin --}}
         @elseif(Route::current()->getName() == 'admin')
-        <a href="{{ route('main') }}">
+        <a href="{{ route('main') }}" class="flex items-center">
             <span class="material-symbols-outlined text-white">
                 home
             </span>

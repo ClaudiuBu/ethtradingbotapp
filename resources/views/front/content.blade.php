@@ -1,6 +1,6 @@
 <div class="main px-2">
     {{-- main --}}
-    <h1 class="font-bold text-5xl text-center mt-5 mb-5"
+    <h1 class="font-bold text-xl text-lg mt-5 mb-5"
     :class="{'text-white': darkMode === 'dark', 'text-black': darkMode === 'light'}">
         Trading Bot Dashboard
     </h1>
