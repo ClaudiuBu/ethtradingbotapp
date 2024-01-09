@@ -7,7 +7,7 @@
 
     {{-- make 3 boxes with circles inside transition --}}
     <div class="flex w-full gap-2">
-        <div class="w-3/6 flex gap-2">
+        <div class="w-3/6 flex gap-2 flex-wrap">
             @include('front.components.infographic')
         </div>
         
@@ -16,17 +16,10 @@
         </div>
     </div>
 
-    <div class="flex w-full mt-5 mb-5">
+    <div class="flex w-full mt-5 mb-5 gap-1">
         {{-- 4/6 new listings --}}
         <div class="w-4/6">
-            <h2> Placeholder for new listings</h2>
-                        {{-- panel --}}
-            <div class="h-2 mt-2 bg-green-500"></div>
-            <div class="h-2 mt-2 bg-green-500"></div>
-            <div class="h-2 mt-2 bg-green-500"></div>
-            <div class="h-2 mt-2 bg-green-500"></div>
-            <div class="h-2 mt-2 bg-green-500"></div>
-            
+            <livewire:new-token-listings/>
         </div>
         {{-- 2/6 console service activity/bots activity --}}
         <div class="w-2/6">
