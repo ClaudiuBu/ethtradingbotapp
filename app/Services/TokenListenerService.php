@@ -20,7 +20,7 @@ daca balance-ul e venit de pe exchange sau de la un alt wallet care e trusty - d
 //also pair-ul de uniswap e creat in momentul cand e tradable? sau cand se adauga lichidatatea?
 //if so, trebuie monitorizat eventul cand se adauga lichidaitatea pe pair-ul respectiv/atunci se poate trade-ui
 
-//Statistica pe trade-uri/tabela statistics pentru info
+//Statistica pe trade-uri/tabela statistics pentru info(metrics)
 //creare configurare pentru watertrade or real trade - in sensul ca nu e pe real money)
 */
 
@@ -31,12 +31,25 @@ daca balance-ul e venit de pe exchange sau de la un alt wallet care e trusty - d
 //flower of life - inspirat de teerrance howard / topologie de retea
 
 //statistica cu raportul de noi holders, ratia, si in functie de asta sa ies sau sa intru
+
+//scapper pentru a lua date de pe 4chan/biz si face sentiment analysis pe ce se discuta acolo/ce monede sunt mentionate and so on/analytics
 /**
  * TokenListenerService
  */
 
 
 //service called API rotator - to rotate api keys
+
+//service called WalletRotator - to rotate wallets in order to avoid being shadowed/followed by bots
+
+
+//  replay mode - simulate a token launch from t0 to tn and test stategies (for entry/exit) - gen daca o sa fac un bot sa am o diagrama
+//cu care sa pozitionez strategiile de entry cu drag and drop
+//care pot gen sa adaug strategii pentru entry si exit si sa le testez pe replay mode - sa vad cum ar fi mers
+
+//daca merge automat sa implementez failsafes/breaks
+
+//think of everything as of a car
 
 namespace App\Services;
 

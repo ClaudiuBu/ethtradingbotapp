@@ -14,7 +14,14 @@ class NewTokenListings extends Component
 
     public function getLatestTokens()
     {
-        return TokenModel::orderBy('created_at', 'desc')->take($this->numberOfLastTokens)->get();
+        $tokens = TokenModel::orderBy('created_at', 'desc')->take($this->numberOfLastTokens)->get();
+        foreach($tokens as $token) {
+            $diff = $token->created_at->diff(now());
+            $formattedDiff = $diff->days . ' days ' . $diff->h . ' hours ' . $diff->i . ' minutes ' . $diff->s . ' seconds';
+            $token->formattedDiff = $formattedDiff;
+        }
+
+        return $tokens;
     }
 
     public function render()
