@@ -1,9 +1,16 @@
 <div class="main px-2">
     {{-- main --}}
+    {{-- component with rolling tokens like on dextools--}}
+    <div>
+        rolling tokens div component here  
+        {{-- //two lines - one with top 20 mcap /the other with just launched - to think about it / maybe active trades one --}}
+    </div>
+
     <h1 class="font-bold text-xl text-lg mt-5 mb-5"
     :class="{'text-white': darkMode === 'dark', 'text-black': darkMode === 'light'}">
         Trading Bot Dashboard
     </h1>
+
 
     {{-- make 3 boxes with circles inside transition --}}
     <div class="flex w-full gap-2">

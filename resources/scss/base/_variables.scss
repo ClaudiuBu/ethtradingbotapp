@@ -1,5 +1,14 @@
+$color-ethereum: #2F2E72;
+$color-ethereum-light: #F4ECFF;
 .color{
     &-ethereum{
         color:#2F2E72;
+    }
+}
+
+
+.bg{
+    &-ethereum{
+        background-color:$color-ethereum-light;
     }
 }
