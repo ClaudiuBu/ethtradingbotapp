@@ -1,6 +1,6 @@
 <div wire:poll.2500ms>
-    <div class="flex justify-between mb-3">
-        <h2> Placeholder for new listings</h2>
+    <div class="flex justify-between mb-5">
+        <h2 class="text-lg font-medium color-gray-700"> Placeholder for new listings</h2>
 
         <div class="flex items-center justify-start gap-2">
             <select wire:model="numberOfLastTokens">
@@ -33,7 +33,7 @@
         @foreach($tokens as $token)
             {{-- color code la bg in functie de scor de la red la verde --}}
             
-            <div class="card bg-red-500 w-[30%] rounded shadow-md relative py-3 px-2">
+            <div class="card bg-red-300 w-[30%] rounded shadow-md relative py-3 px-2">
                  <img class="opacity-40 absolute" src="{{ asset('storage/images/eth-logo2.svg') }}" alt="">
                 <div class="top flex justify-between relative">
                     {{-- sa pun check-ul de contract verificat --}}   
@@ -85,42 +85,52 @@
                     ({{ $token->token_symbol }})</span></h3>
                 {{-- <li>Token Price</li> maybe price at the top, ceva arrow cand creste arrow down cand scade --}}
                 {{-- body --}}
-                <div class="relative">
+                <div class="relative mt-2">
                     <ul>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Launched:
                             <span>
-                                 {{ $token->formattedDiff }}
+                                 {{ $token->formattedDiff }} ago
                             </span>
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Decimals
+                            <span>
+                                {{ $token->token_decimals }}
+                            </span>
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Supply
+                            <span>
+                                {{ $token->token_total_supply }}
+                            </span>
+
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Holders
+                            <span>
+                                {{ $token->token_holders }}
+                            </span>
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Price
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Market Cap
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Liquidity
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Token Volume
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Sell Tax 
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Buy Tax
                         </li>
-                        <li class="text-sm text-white">
+                        <li class="text-xs color-ethereum font-medium">
                             Contract Address
                         </li>
                     </ul>
@@ -130,7 +140,3 @@
         @endforeach
     </div>  
 </div> 
-
-<style>
-
-    </style>
