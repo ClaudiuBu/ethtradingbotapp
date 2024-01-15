@@ -11,6 +11,10 @@
             @include('admin.content')
         @endif
     </div>
+    @stack('modals')
+
+    <livewire:contract-modal>
+    
     @include('front._partials.javascript')
 </body>
 </html>

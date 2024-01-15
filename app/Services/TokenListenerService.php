@@ -14,6 +14,9 @@ sau sa creez un serviciu care ia preturile in real time pentru a calcula profitu
 De creat sistem de notificari pentru telegram si pentru email cand se creeaza un nou token si cand se tradeaza un token nou(inchide trade/profit yada yada)
 De asemenea pot implementa gpt-4 pentru a folosit botul in scopul de validare(to look into it/ML ideas around it)
 /Validarea contractelor de vazut ce le face scam/rug/honeypot - sisteme complexe de validare(check ABI/sau bytecode DE VAZUT)
+
+//desfasurator al deciziilor de validare/puncte de gandire/de analiza/ in analiza finala sa vezi procesul care s-a ajuns acolo sa poti depana si calibra
+
 Intentia de scam este data de contract_owner - de intuit intentia lui, legit project or not(de cat timp e creat walletul,ce balance  are,ce istoric de trading
 daca balance-ul e venit de pe exchange sau de la un alt wallet care e trusty - de jucat cu ideea asta)
 
@@ -30,26 +33,27 @@ daca balance-ul e venit de pe exchange sau de la un alt wallet care e trusty - d
 //analitics cu graph/noduri/topologia monedei, cu enfaza pe adresa care creeaza moneda/noduri/topologie/relatii intre walleturi/ pentru sursa fondurilor a walletului - de unde vin fondurile,de pe ce exchange,de la ce wallet,de la ce contract,de la ce wallet//ca si la networking graph
 //flower of life - inspirat de teerrance howard / topologie de retea
 
-//statistica cu raportul de noi holders, ratia, si in functie de asta sa ies sau sa intru
+//statistica cu raportul de noi holders, ratia, si in functie de asta sa ies sau sa intru si metrics sa ma gandesc in general
 
 //scapper pentru a lua date de pe 4chan/biz si face sentiment analysis pe ce se discuta acolo/ce monede sunt mentionate and so on/analytics
 /**
  * TokenListenerService
  */
 
-
 //service called API rotator - to rotate api keys
 
-//service called WalletRotator - to rotate wallets in order to avoid being shadowed/followed by bots
+//service called WalletRotator - to rotate wallets in order to avoid being shadowed/followed by bots, la un moment dat banii sa ii transfere automat pe binance cu api-ul lor
+// si dupa sa ii intoarca inapoi intr-un wallet fresh
 
-
-//  replay mode - simulate a token launch from t0 to tn and test stategies (for entry/exit) - gen daca o sa fac un bot sa am o diagrama
+//replay mode - simulate a token launch from t0 to tn and test stategies (for entry/exit) - gen daca o sa fac un bot sa am o diagrama
 //cu care sa pozitionez strategiile de entry cu drag and drop
 //care pot gen sa adaug strategii pentru entry si exit si sa le testez pe replay mode - sa vad cum ar fi mers
 
 //daca merge automat sa implementez failsafes/breaks
 
 //think of everything as of a car
+
+//sentiment analysis pe twitter/4chan biz si site-uri de crypto discussion boards
 
 namespace App\Services;
 

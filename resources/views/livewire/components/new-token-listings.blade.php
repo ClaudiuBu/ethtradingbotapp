@@ -43,13 +43,15 @@
                     {{-- numarul de holderi --}}
                     {{-- lista cu ethscan/dextools/contract-ul afisat in popup(formatat)--}}
                     <div class="action-bar flex gap-1">
-                        <div x-data="{open=false}">
-                            <a @mouseover="open = true" @mouseout="open = false" class="cursor-pointer">
-                                <span class="material-symbols-outlined bg-white rounded" style="padding:1px;">
-                                    contract
+                        @if($token->contract_source_code)
+                            <div >
+                                <a class="cursor-pointer">
+                                    <span class="material-symbols-outlined bg-white rounded" style="padding:1px;">
+                                        contract
                                     </span>
                                 </a>
-                        </div>
+                            </div>
+                        @endif
                         <div x-data="{open:false}">
                             <a @mouseover="open = true" @mouseout="open = false" class="cursor-pointer">
                                 <span class="material-symbols-outlined bg-white rounded" style="padding:1px;">
@@ -82,7 +84,7 @@
                                         @mouseout="open = false">
                                     verified
                                 </span>
-                                <span class="bg-white p-1 rounded text-sm top-[-30px] left-[40px] shadow-md absolute"
+                                <span class="bg-white p-1 rounded text-sm top-[-30px] left-[40px] shadow-md absolute z-10"
                                         x-show="open"
                                         x-transition:enter="transition ease-out duration-200 transform"
                                         x-transition:enter-start="opacity-0 translate-y-1"

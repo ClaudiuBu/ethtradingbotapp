@@ -176,7 +176,7 @@ class Eth
     public function getTokenInfo(string $tokenAddress)
     {
         [$tokenOwner, $txHash] = $this->getTokenOwnerAndTxHash($tokenAddress);
-        $contractSourceCode = $this->getContractVerified($tokenAddress)->result[0]->SourceCode;
+        $contractSourceCode = $this->getContractVerified($tokenAddress);
         $contractSourceCode = $contractSourceCode != '' ? $contractSourceCode : 'Contract source code not verified';
         return [
             'token_address' => $tokenAddress,
@@ -206,7 +206,9 @@ class Eth
                 $response = $client->request('GET', $url);
                 if ($response->getStatusCode() == 200) {
                     $try = false;
-                    return json_decode($response->getBody()->getContents());
+                    $responseBody = json_decode($response->getBody()->getContents(), true);
+                    $sourceCode = $responseBody['result'][0]['SourceCode'];
+                    return $sourceCode;
                 }
                 sleep(1);
             } catch (\Exception $e) {
